@@ -1,0 +1,127 @@
+Create PizzaDB;
+use PizzaDB;
+go
+Create Table Employee(
+   Id nvarchar(8) not null primary key,
+   EmpName nvarchar(255) not null,
+   Position nvarchar(255) not null,
+   Email nvarchar(255) not null,
+   EmpPassword nvarchar(255) not null,
+   Picture varbinary(max)  null
+);
+Create Table Category(
+	Id int not null primary key,
+	Category_Type nvarchar(255)
+);
+go
+Create Table Product(
+	Id int not null identity(1,1) primary key,
+	Cat_id int Foreign key References Category(Id)
+	,Name nvarchar(255) not null,
+	Description nvarchar(255) not null,
+	Price float,
+	Picture varbinary(max)
+);
+go 
+Create Table OrderDetail(
+	Order_Detail_id int not null identity(1,1) primary key,
+	Pro_id int Foreign key References Product(Id),
+	Order_id int Foreign key References Orders(Id) 
+	,Qty int 
+);
+go
+Create Table Orders(
+	Id int not null identity(1,1) Primary key,
+	Description nvarchar(255) not null,
+	Price float,
+	Order_Date date
+)
+go 
+
+insert into Cateogry values(1,'Drink');
+insert into Category values(2,'Pizza');
+insert into Employee values("E001","Admin","Manager","Admin@pizza.kh","Admin@123",1)
+go
+-- store procedure Insert EMployee 
+use PizzaDB;
+go
+create procedure InsertEmployee
+(
+	@id nvarchar(8),
+	@name nvarchar(255),
+	@position nvarchar(255),
+	@email nvarchar(255),
+	@password nvarchar(255),
+	@image varbinary(max)
+)
+as
+begin
+	insert into Employee values(@id, @name,@position,@email,@password,@image);
+end
+go
+-- store procedure delete Employee
+
+create procedure DeleteEmployee
+(
+   @id varchar(8)
+)
+as
+begin
+	delete Employee where Id=@id
+end
+go
+
+--store procedure find employee
+
+create procedure FindEmployee
+(
+   @id varchar(8)
+)
+as
+begin
+	select * from Employee where Id=@id;
+end
+go
+
+-- store procedure update employee 
+create procedure UpdateEmployee
+(
+	@id nvarchar(8),
+	@name nvarchar(255),
+	@position nvarchar(255),
+	@email nvarchar(255),
+	@password nvarchar(255),
+	@image varbinary(max)
+)
+as
+begin
+	Update Employee set Position=@position,Email= @email,EmpPassword=@password,Picture=@image where Id=@id;
+end
+go
+create procedure InsertProduct
+(
+	@cat_id int,
+	@name nvarchar(255),
+	@description nvarchar(255),
+	@price float,
+	@image varbinary(max)
+)
+as
+begin
+	insert into Product values(@cat_id,@name,@description,@price,@image);
+end
+GO
+create procedure UpdateProduct
+(
+	@id int,
+	@cat_id int,
+	@name nvarchar(255),
+	@description nvarchar(255),
+	@price float,
+	@image varbinary(max)
+)
+as
+begin
+	Update Product set Cat_id= @cat_id,Name=@name,Description= @description,Price=@price,Picture=@image where Id=@id;
+end
+GO
