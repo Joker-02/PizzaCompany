@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using PizzaCompany.Classes;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace PizzaCompany.EmployeeForms
 {
-    public partial class ViewEmployee : Form
+    public partial class ViewEmployee : KryptonForm
     {
         private readonly EmployeeForm employee;
         string position = null;

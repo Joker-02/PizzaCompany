@@ -11,10 +11,11 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using PizzaCompany.Classes.abstracts;
 using PizzaCompany.Classes.Employees;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace PizzaCompany.EmployeeForms
 {
-    public partial class EmployeeForm : Form
+    public partial class EmployeeForm : KryptonForm
     {
         private Manager manager =new Manager();
         private readonly SqlConnection conn;
@@ -93,7 +94,7 @@ namespace PizzaCompany.EmployeeForms
         {
             EditEmployee editEmployee = new EditEmployee(conn, this, dataGridView1.CurrentRow);
             editEmployee.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void BtnNew_Click(object sender, EventArgs e)

@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using PizzaCompany.Classes;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace PizzaCompany.EmployeeForms
 {
-    public partial class NewEmForm : Form
+    public partial class NewEmForm : KryptonForm
     {
         SqlConnection con;
         SqlCommand cmd;

@@ -30,6 +30,7 @@ Create Table OrderDetail(
 	,Qty int 
 );
 go
+--run these beforw orderdetail
 Create Table Orders(
 	Id int not null identity(1,1) Primary key,
 	Description nvarchar(255) not null,
@@ -37,10 +38,10 @@ Create Table Orders(
 	Order_Date date
 )
 go 
-
+--important if not add code will not work
 insert into Cateogry values(1,'Drink');
 insert into Category values(2,'Pizza');
-insert into Employee values("E001","Admin","Manager","Admin@pizza.kh","Admin@123",1)
+insert into Employee values('E001','Admin','Manager','Admin@pizza.kh','Admin@123',1)
 go
 -- store procedure Insert EMployee 
 use PizzaDB;
@@ -95,7 +96,7 @@ create procedure UpdateEmployee
 )
 as
 begin
-	Update Employee set Position=@position,Email= @email,EmpPassword=@password,Picture=@image where Id=@id;
+	Update Employee set EmpName=@name, Position=@position,Email= @email,EmpPassword=@password,Picture=@image where Id=@id;
 end
 go
 create procedure InsertProduct

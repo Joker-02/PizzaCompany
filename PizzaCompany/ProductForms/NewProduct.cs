@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using ComponentFactory.Krypton.Toolkit;
+
 namespace PizzaCompany.ProductForms
 {
-    public partial class NewProduct : Form
+    public partial class NewProduct : KryptonForm
     {
         SqlConnection con;
         SqlCommand cmd;

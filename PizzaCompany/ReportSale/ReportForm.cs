@@ -1,4 +1,5 @@
-﻿using PizzaCompany.Classes;
+﻿using ComponentFactory.Krypton.Toolkit;
+using PizzaCompany.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace PizzaCompany.ReportSale
 {
-    public partial class ReportForm : Form
+    public partial class ReportForm : KryptonForm
     {
         readonly SqlConnection conn;
         readonly MenuForm menuForm;

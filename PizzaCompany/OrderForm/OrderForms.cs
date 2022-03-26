@@ -15,10 +15,11 @@ using PizzaCompany.Classes;
 using Pizza_Company.Classes.PizzaSize;
 using Pizza_Company.Topping;
 using Pizza_Company.Classes.Crusts;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace PizzaCompany.OrderForm
 {
-    public partial class OrderForms : Form
+    public partial class OrderForms : KryptonForm
     {
         List<string> category = new List<string>();
         List<int> cat = new List<int>();
@@ -286,10 +287,38 @@ namespace PizzaCompany.OrderForm
                     while (reader.Read())
                     {
                         int cat=int.Parse(reader["Id"].ToString());
-                        Button btn = new Button();
-                        btn.Font = new Font("Khmer OS Battambang", 8, FontStyle.Bold);
-                        btn.ForeColor = Color.Black;
-                        btn.TextAlign = ContentAlignment.MiddleCenter;
+                        KryptonButton btn = new KryptonButton();
+                        btn.Font = new Font("Poppins", 12, FontStyle.Bold);
+                        btn.OverrideDefault.Back.Color1 = Color.FromArgb(250, 252, 252);
+                        btn.OverrideDefault.Back.Color2 = Color.FromArgb(250, 252, 252);
+                        btn.StateCommon.Back.Color1 = Color.FromArgb(250, 252, 252);
+                        btn.StateCommon.Back.Color2 = Color.FromArgb(250, 252, 252);
+                        btn.StateCommon.Back.ColorAngle = 45;
+                        btn.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+                        btn.StateCommon.Border.Color2 = Color.FromArgb(8, 142, 254);
+                        btn.StateCommon.Border.ColorAngle = 45;
+                        btn.StateCommon.Border.Rounding = 20;
+                        btn.StateCommon.Border.Width = 1;
+                        btn.StatePressed.Back.Color1 = Color.FromArgb(20, 145, 198);
+                        btn.StatePressed.Back.Color2 = Color.FromArgb(22, 121, 206);
+                        btn.StatePressed.Back.ColorAngle = 135;
+                        btn.StatePressed.Border.Color1 = Color.FromArgb(20, 145, 198);
+                        btn.StatePressed.Border.Rounding = 20;
+                        btn.StatePressed.Border.Width = 1;
+                        btn.StateTracking.Back.Color1 = Color.FromArgb(8, 142, 254);
+                        btn.StateTracking.Back.Color2 = Color.FromArgb(6, 174, 244);
+                        btn.StateTracking.Back.ColorAngle = 45;
+                        btn.StateTracking.Border.Color1 = Color.FromArgb(20, 145, 198);
+                        btn.StateTracking.Border.Rounding = 20;
+                        btn.StateTracking.Border.Width = 1;
+                        btn.StateCommon.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+                        btn.StateCommon.Content.ShortText.Font= new Font("Poppins", 12, FontStyle.Bold);
+                        btn.OverrideDefault.Back.ColorAngle = 45;
+                        btn.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 244);
+                        btn.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 244);
+                        btn.OverrideDefault.Border.Rounding = 20;
+                        btn.OverrideDefault.Border.Width = 1;
+                        btn.OverrideDefault.Border.ColorAngle = 45;
                         btn.Text = reader["Category_Type"].ToString();
                         btn.Size = new System.Drawing.Size(120, 120);
                         CategoryFlow.Controls.Add(btn);
@@ -310,7 +339,7 @@ namespace PizzaCompany.OrderForm
         {
             try
             {
-                Button b=(Button)sender;
+                KryptonButton b = (KryptonButton)sender;
                 int Id =(int) b.Tag;
                // MessageBox.Show($"Category Id={Id}");
                 getData(Id);
@@ -331,8 +360,9 @@ namespace PizzaCompany.OrderForm
                     while (reader.Read())
                     {
                         Button btn = new Button();
-                        btn.Font = new Font("Khmer OS Battambang", 8, FontStyle.Bold);
-                        btn.ForeColor = Color.Green;
+                        btn.Font = new Font("Poppins", 12, FontStyle.Bold);
+                        btn.ForeColor = Color.FromArgb(204,0,102);
+                        btn.BackColor = Color.FromArgb(250, 252, 252);
                         btn.TextAlign = ContentAlignment.BottomCenter;
                         btn.Text = reader["Price"].ToString() +"$\n"+  reader["Name"].ToString();
                         btn.Size = new System.Drawing.Size(120, 120);

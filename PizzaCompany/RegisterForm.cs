@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 using PizzaCompany.Classes;
 using PizzaCompany.Classes.Employees;
 using PizzaCompany.Classes.abstracts;
-
+using ComponentFactory.Krypton.Toolkit;
 namespace PizzaCompany
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : KryptonForm
     {
         private readonly Form1 form1;
         private readonly SqlConnection _conn;
@@ -105,6 +105,16 @@ namespace PizzaCompany
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             form1.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

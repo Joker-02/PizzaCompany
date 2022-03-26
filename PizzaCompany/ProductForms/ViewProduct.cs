@@ -1,4 +1,5 @@
-﻿using PizzaCompany.Classes;
+﻿using ComponentFactory.Krypton.Toolkit;
+using PizzaCompany.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PizzaCompany.ProductForms
 {
-    public partial class ViewProduct : Form
+    public partial class ViewProduct : KryptonForm
     {
         public ViewProduct(DataGridViewRow row)
         {

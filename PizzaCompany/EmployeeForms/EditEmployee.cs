@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using PizzaCompany.Classes;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace PizzaCompany.EmployeeForms
 {
-    public partial class EditEmployee : Form
+    public partial class EditEmployee : KryptonForm
     {
         SqlConnection con;
         SqlCommand cmd;
@@ -126,12 +127,7 @@ namespace PizzaCompany.EmployeeForms
         {
             try
             {
-                if (Validation.validateEmail(txtEmail.Text) == false) throw new Exception("Invalid email");
-                if (Validation.validatePassword(txtPassword.Text) == false) throw new Exception("Password must be at least \n" +
-                     "8-20 in length\n 1 upper cast letter\n 1 lower cast letter \n 1 number \n 1 special charector");
-                if (Validation.validateField(txtName.Text) == false ||
-                    Validation.validateField(txtID.Text) == false
-                    ) throw new Exception("Field can not be empty");
+               
                 cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandText = "UpdateEmployee";

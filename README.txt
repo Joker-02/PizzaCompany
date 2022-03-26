@@ -19,3 +19,4 @@ Patterm :
 	Bass Class Pizza
 	Derived Class AddInPizza,
 	Decorator:Crust,Topping,SizePizza check in that Folder
+-------------That All Folk------------

@@ -15,10 +15,10 @@ using Pizza_Company.Topping;
 using Pizza_Company.Classes.Crusts;
 using Pizza_Company.Classes.PizzaSize;
 using PizzaCompany.Classes.Employees;
-
+using ComponentFactory.Krypton.Toolkit;
 namespace PizzaCompany
 {
-    public partial class Form1 : Form
+    public partial class Form1 : KryptonForm
     {
         private SqlConnection _conn;
         private SqlCommand _cmd;
